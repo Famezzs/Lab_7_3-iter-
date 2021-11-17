@@ -85,13 +85,8 @@ void LocalMinimum(int **a, const int n, int &k)
 		for (int j = 0; j < n; j++)
 		{
 			int tmp = a[i][j];
-			if (i > 0 && tmp > a[i - 1][j])
-				continue;
-			if (j > 0 && tmp > a[i][j - 1])
-				continue;
-			if (i < n - 1 && tmp > a[i + 1][j])
-				continue;
-			if (j < n - 1 && tmp > a[i][j + 1])
+			if (i > 0 && tmp >= a[i - 1][j] || j > 0 && tmp >= a[i][j - 1] ||
+				i < n - 1 && tmp >= a[i + 1][j] || j < n - 1 && tmp >= a[i][j + 1])
 				continue;
 
 			k++;
